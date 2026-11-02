@@ -34,3 +34,4 @@ find "${BACKUP_DIR}" -type f -name "backup_*.tar.gz.sha256" -mtime +"${RETENTION
 
 echo "[SUCCESS] Rotation complete. Current backups in ${BACKUP_DIR}:"
 ls -lh "${BACKUP_DIR}"
+

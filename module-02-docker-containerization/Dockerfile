@@ -28,3 +28,4 @@ USER nonroot:nonroot
 EXPOSE 3000
 
 CMD ["server.js"]
+

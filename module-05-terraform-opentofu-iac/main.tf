@@ -60,3 +60,4 @@ resource "aws_internet_gateway" "gw" {
     Name = "${var.environment}-igw"
   }
 }
+

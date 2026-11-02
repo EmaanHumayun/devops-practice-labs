@@ -37,3 +37,4 @@ if (( $(echo "$CPU_USAGE > $CPU_THRESHOLD" | bc -l) )) || \
 else
   echo "[STATUS] ✅ HEALTHY: All metrics within operational SLA."
 fi
+
