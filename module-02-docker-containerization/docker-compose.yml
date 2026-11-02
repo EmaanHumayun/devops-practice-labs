@@ -1,0 +1,51 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: production_service
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - REDIS_URL=redis://redis:6379
+      - DB_URI=mongodb://mongo:27017/prod_db
+    depends_on:
+      redis:
+        condition: service_healthy
+      mongo:
+        condition: service_started
+    networks:
+      - internal_mesh
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3000/healthz').then(r => r.ok ? process.exit(0) : process.exit(1))"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+
+  redis:
+    image: redis:7-alpine
+    container_name: cache_cluster
+    networks:
+      - internal_mesh
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  mongo:
+    image: mongo:6-jammy
+    container_name: persistent_db
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - internal_mesh
+
+networks:
+  internal_mesh:
+    driver: bridge
+
+volumes:
+  mongo_data:
