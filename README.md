@@ -8,7 +8,7 @@ A structured, production-grade hands-on repository containing practical engineer
 
 ---
 
-## 📚 Curriculum Matrix
+##  Curriculum Matrix
 
 | Module | Core Technology | Key Focus Areas | Status |
 | :--- | :--- | :--- | :--- |
@@ -23,7 +23,7 @@ A structured, production-grade hands-on repository containing practical engineer
 
 ---
 
-## 🛠️ Lab Directory Structure
+## ️ Lab Directory Structure
 
 ```text
 devops-practice-labs/
@@ -67,7 +67,7 @@ devops-practice-labs/
 
 ---
 
-## 🚀 How to Execute & Verify Labs
+##  How to Execute & Verify Labs
 
 Each module includes standalone instructions and verification commands.
 
@@ -94,7 +94,7 @@ kubectl get pods -l app=production-service -w
 
 ---
 
-## 👤 Author
+##  Author
 
 **Emaan Humayun**
 - GitHub: [@EmaanHumayun](https://github.com/EmaanHumayun)
